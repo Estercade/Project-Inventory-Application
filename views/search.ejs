@@ -8,9 +8,9 @@
 <body>
     <%- include("partials/navBar") %>
     <%- include("partials/searchBar.ejs") %>
-    <ul>
-        <% if (locals.pokemon) { %>
-            <% locals.pokemon.forEach((pokemon) => { %>
+    <% if (locals.results) { %>
+        <ul>
+            <% results.forEach((pokemon) => { %>
                 <li>
                     <p>Name: <%= pokemon.name %></p>
                     <p>Pok&#233dex number: <%= pokemon.pokedex_number %></p>
@@ -19,8 +19,7 @@
                 </li>
                 <a href="/view/<%- pokemon.id %>">View details</a>
             <% }) %>
-        <% } %>
-    </ul>
-    <a href="/new">Add new item</a>
+        </ul>
+    <% } %>
 </body>
 </html>

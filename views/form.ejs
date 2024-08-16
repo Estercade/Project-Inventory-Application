@@ -6,9 +6,11 @@
     <title><%- title %></title>
 </head>
 <body>
+    <%- include("partials/navBar") %>
+    <%- include("partials/searchBar.ejs") %>
     <form action="/new" method="POST">
         <label for="name">Name: </label>
-        <input type="text" name="name" id="name" /><br required>
+        <input type="text" name="name" id="name" minlength="3" maxlength="12" required/><br>
         <label for="generation">Generation: </label>
         <select name="generation" id="generation" required>
             <option value="1">1</option>
@@ -21,8 +23,8 @@
             <option value="8">8</option>
             <option value="9">9</option>
         </select><br>
-        <label for="pokedex_number">Pokedex number: </label>
-        <input type="number" name="pokedex_number" id="pokedex_number" min="1" required /><br>
+        <label for="pokedex_number">Pok&#233dex number: </label>
+        <input type="number" name="pokedex_number" id="pokedex_number" min="1" max="1025" required /><br>
         <label for="type1">Type 1: </label>
         <select name="type1" id="type1" required>
             <option value="1">Normal</option>
@@ -79,8 +81,9 @@
         <label for="shiny">Shiny: </label>
         <input type="checkbox" name="shiny" id="shiny" /><br>
         <label for="price">Price: </label>
-        <input type="number" name="price" id="price" min="1" required/><br>
+        <input type="number" name="price" id="price" min="1" max="999999" required/><br>
         <button type="submit">Submit</button>
     </form>
+    <a href="/">Back to home</a>
 </body>
 </html>

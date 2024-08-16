@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><% title %></title>
+    <title><%- title %></title>
 </head>
 <body>
+    <%- include("partials/navBar") %>
+    <%- include("partials/searchBar.ejs") %>
     <ul>
-        <li>Name: <%= pokemon.name %></li>
+        <li>Name: <%= pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1) %></li>
         <li>Generation: <%= pokemon.generation %></li>
-        <li>Pokedex number: <%= pokemon.pokedex_number %></li>
+        <li>Pok&#233dex number: <%= pokemon.pokedex_number.toString().padStart(4, '0') %></li>
         <li>Type: <%= pokemon.type1 %> <% if (pokemon.type2) { %> <%= pokemon.type2 %> <% } %></li>
         <li>Rarity: <%= pokemon.rarity %></li>
         <li>Shiny: <%= pokemon.shiny %></li>
         <li>Price: <%= pokemon.price %></li>
     </ul>
+    <form action="/delete/<%= pokemon.id %>" method="POST">
+        <button type="submit" onclick="return confirm('Are you sure you want to delete this Pok&#233mon?');">Delete</button>
+    </form>
+    <a href="/">Back to home</a>
 </body>
 </html>
