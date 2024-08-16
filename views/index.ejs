@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%- title %></title>
+</head>
+<body>
+    <ul>
+        <% if (locals.pokemon) { %>
+            <% locals.pokemon.forEach((pokemon) => { %>
+                <li>
+                    <p>Name: <%= pokemon.name %></p>
+                    <p>Pokedex number: <%= pokemon.pokedex_number %></p>
+                    <p>Type: <%= pokemon.type1 %> <% if (pokemon.type2) { %> <%= pokemon.type2 %> <% } %></p>
+                    <p>Price: <%= pokemon.price %></p>
+                </li>
+                <a href="/view/<%- pokemon.id %>">View details</a>
+            <% }) %>
+        <% } %>
+    </ul>
+    <a href="/new">Add new Pokemon</a>
+</body>
+</html>

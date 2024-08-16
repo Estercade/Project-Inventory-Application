@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><% title %></title>
+</head>
+<body>
+    <ul>
+        <li>Name: <%= pokemon.name %></li>
+        <li>Generation: <%= pokemon.generation %></li>
+        <li>Pokedex number: <%= pokemon.pokedex_number %></li>
+        <li>Type: <%= pokemon.type1 %> <% if (pokemon.type2) { %> <%= pokemon.type2 %> <% } %></li>
+        <li>Rarity: <%= pokemon.rarity %></li>
+        <li>Shiny: <%= pokemon.shiny %></li>
+        <li>Price: <%= pokemon.price %></li>
+    </ul>
+</body>
+</html>
