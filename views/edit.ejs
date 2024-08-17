@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <title><%- title %></title>
+</head>
+<body>
+    <% if (locals.pokemon) { %>
+        <form action="/new" method="POST">
+            <label for="name">Name: </label>
+            <input type="text" name="name" id="name" minlength="3" maxlength="12" value=<%= pokemon.name %> required/><br>
+            <label for="generation">Generation: </label>
+            <select name="generation" id="generation" value=<%= pokemon.generation %> required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select><br>
+            <label for="pokedex_number">Pok&#233dex number: </label>
+            <input type="number" name="pokedex_number" id="pokedex_number" min="1" max="1025" value=<%= pokemon.pokedex_number %> required /><br>
+            <label for="type1">Type 1: </label>
+            <select name="type1" id="type1" value=<%= pokemon.type1 %> required>
+                <option value="1">Normal</option>
+                <option value="2">Fighting</option>
+                <option value="3">Flying</option>
+                <option value="4">Poison</option>
+                <option value="5">Ground</option>
+                <option value="6">Rock</option>
+                <option value="7">Bug</option>
+                <option value="8">Ghost</option>
+                <option value="9">Steel</option>
+                <option value="10">Fire</option>
+                <option value="11">Water</option>
+                <option value="12">Grass</option>
+                <option value="13">Electric</option>
+                <option value="14">Psychic</option>
+                <option value="15">Ice</option>
+                <option value="16">Dragon</option>
+                <option value="17">Dark</option>
+                <option value="18">Fairy</option>
+                <option value="19">Stellar</option>
+                <option value="20">Unknown</option>
+            </select><br>
+            <label for="type2">Type 2: </label>
+            <select name="type2" id="type2" value=<%= pokemon.type2 %>>
+                <option value="0"></option>
+                <option value="1">Normal</option>
+                <option value="2">Fighting</option>
+                <option value="3">Flying</option>
+                <option value="4">Poison</option>
+                <option value="5">Ground</option>
+                <option value="6">Rock</option>
+                <option value="7">Bug</option>
+                <option value="8">Ghost</option>
+                <option value="9">Steel</option>
+                <option value="10">Fire</option>
+                <option value="11">Water</option>
+                <option value="12">Grass</option>
+                <option value="13">Electric</option>
+                <option value="14">Psychic</option>
+                <option value="15">Ice</option>
+                <option value="16">Dragon</option>
+                <option value="17">Dark</option>
+                <option value="18">Fairy</option>
+                <option value="19">Stellar</option>
+                <option value="20">Unknown</option>
+            </select><br>
+            <label for="rarity">Rarity: </label>
+            <select name="rarity" id="rarity" value=<%= pokemon.rarity %> required>
+                <option value="common">Common</option>
+                <option value="legendary">Legendary</option>
+                <option value="mythical">Mythical</option>
+            </select><br>
+            <label for="shiny">Shiny: </label>
+            <input type="checkbox" name="shiny" id="shiny" value=<%= !!pokemon.shiny %> /><br>
+            <label for="price">Price: </label>
+            <input type="number" name="price" id="price" min="1" max="999999" value=<%= pokemon.price %> required/><br>
+            <button type="submit">Submit</button>
+        </form>
+        <form action="/delete/<%= pokemon.id %>" method="POST">
+            <button type="submit" onclick="return confirm('Are you sure you want to delete this Pok&#233mon?');">Delete</button>
+        </form>
+    <% } else { %>
+        <p>Item not found.</p>
+    <% } %>
+    <a href="/">Back to home</a>
+</body>
+</html>

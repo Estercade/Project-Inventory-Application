@@ -1,0 +1,41 @@
+/* General stylesheet */
+
+/* reset browser defaults starts */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+}
+/* reset browser defaults ends */
+
+/* general styling begins */
+@font-face {
+    font-family: "Pokemon GB";
+    src: local("Pokemon GB"), url(./PokemonGb-RAeo.ttf);
+}
+
+button {
+    font-family: "Pokemon GB";
+}
+
+body {
+    font-family: "Pokemon GB", sans-serif;
+}
+/* general styling ends */
+
+/* header styling begins */
+.header {
+    display: flex;
+}
+
+.linksContainer {
+    display: flex;
+}
+
+.searchbarContainer {
+    margin-left: auto;
+}
+/* header styling ends */

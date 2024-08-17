@@ -24,11 +24,29 @@ async function createPokemonPost(req, res) {
 }
 
 async function viewPokemon(req, res) {
-    const target = await db.viewPokemonDetails(req.params.id);
+    const target = await db.getPokemonDetails(req.params.id);
     // formatting query results begin
-    target.name = target.name.charAt(0).toUpperCase() + target.name.slice(1);
+    if (target) {
+        target.name = target.name.charAt(0).toUpperCase() + target.name.slice(1);
+    }
     // formatting query results end
-    res.render("details", { title: "View Pok&#233mon details", pokemon: target, links: req.links });
+    res.render("details", { title: "View item details", pokemon: target, links: req.links });
+}
+
+async function editPokemonGet(req, res) {
+    const target = await db.getPokemonDetails(req.params.id);
+    // formatting query results begin
+    if (target) { target.name = target.name.charAt(0).toUpperCase() + target.name.slice(1) };
+    // formatting query results end
+    res.render("edit", { title: "Edit item", pokemon: target, links: req.links });
+}
+
+async function editPokemonPost(req, res){
+    const { generation, pokedex_number, type1, type2, rarity, price } = req.body;
+    const shiny = !!req.body.shiny;
+    const name = req.body.name.toLowerCase();
+    await db.updatePokemon(name, generation, pokedex_number, type1, type2, rarity, shiny, price);
+    res.redirect("/");
 }
 
 async function deletePokemon(req, res) {
@@ -62,16 +80,24 @@ async function searchPokemonPost(req, res) {
 
 async function searchPokemonGet(req, res) {
     let queriesArray = req.query.id;
-    // wrap in array for array comparison in query
-    if (queriesArray.length < 2) { queriesArray = [queriesArray] };
-    let results = await db.getPokemonById(queriesArray);
-    // formatting query results begin
-    results.forEach((pokemon) => {
-        pokemon.name = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
-        pokemon.pokedex_number = pokemon.pokedex_number.toString().padStart(4, '0');
-    })
-    // formatting query results end
+    let results;
+    if (queriesArray) {
+        // wrap in array for array comparison in query if only one item
+        if (queriesArray.length === 1) { queriesArray = [queriesArray] };
+        results = await db.getPokemonById(queriesArray);
+        // formatting query results begin
+        results.forEach((pokemon) => {
+            pokemon.name = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+            pokemon.pokedex_number = pokemon.pokedex_number.toString().padStart(4, '0');
+        // formatting query results end
+        })
+    }
     res.render("search", { title: "Search results", results: results, links: req.links });
+}
+
+async function notFound(err, req, res, next) {
+    res.status(404);
+    res.render("404", { title: "Oops!", links: req.links });
 }
 
 module.exports = {
@@ -79,7 +105,10 @@ module.exports = {
     createPokemonGet,
     createPokemonPost,
     viewPokemon,
+    editPokemonGet,
+    editPokemonPost,
     deletePokemon,
     searchPokemonPost,
     searchPokemonGet,
+    notFound,
 }
