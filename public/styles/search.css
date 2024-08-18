@@ -1,0 +1,85 @@
+/* Search results stylesheet */
+
+/* main styling begins -----------------------*/
+main {
+    padding: 0.2rem;
+}
+
+/* results styling begins */
+.resultsItemContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.inventoryItem {
+    box-sizing: border-box;
+    margin: 0.2rem;
+    border: 2px solid var(--color-text);
+    border-radius: 3px;
+    padding: 0.5rem;
+    min-width: 340px;
+    width: max(340px, calc(25% - 0.4rem));
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+        "img details"
+        "img controls";
+}
+
+.itemImageWrapper {
+    grid-area: img;
+}
+
+.itemDetailsWrapper {
+    margin-left: 0.25rem;
+}
+
+.itemDetailsWrapper {
+    width: 100%;
+    grid-area: details;
+}
+
+.itemControls {
+    display: flex;
+    gap: 0.2rem;
+    grid-area: controls;
+}
+
+.viewLink {
+    margin-left: auto;
+}
+/* inventory item styling ends */
+
+/* main styling ends ------------------------ */
+
+@media (max-width: 1600px) {
+    .inventoryItem {
+        width: max(350px, calc(33% - 0.4rem));
+    }
+}
+
+/* tablet styling begins ------------------------------------ */
+@media (max-width: 1100px) {
+    /* inventory styling begins */
+    .inventoryItem {
+        width: max(350px, calc(50% - 0.4rem));
+    }
+    /* inventory styling ends */
+}
+/* tablet styling ends -------------------------------------- */
+
+/* mobile styling begins ------------------------------------ */
+@media (max-width: 750px) {
+    /* inventory styling begins */
+    .inventoryContainer {
+        display: block;
+    }
+
+    .inventoryItem {
+        width: max(350px, 100%);
+    }
+    /* inventory styling ends */
+}
+/* mobile styling ends -------------------------------------- */

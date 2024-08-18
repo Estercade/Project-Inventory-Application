@@ -1,14 +1,17 @@
 const db = require("../db/queries");
+const imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/";
 
 async function getAllPokemon(req, res) {
     const pokemon = await db.getAllPokemon();
     // formatting query results begin
     pokemon.forEach((target) => {
+        target.image = `${imageUrl}` + (!target.shiny ? "" : "shiny/") + `${target.pokedex_number}.png`;
         target.name = target.name.charAt(0).toUpperCase() + target.name.slice(1);
-        target.pokedex_number = target.pokedex_number.toString().padStart(4, '0');
+        target.price = `$${target.price}`;
+        target.pokedex_number = `#${target.pokedex_number.toString().padStart(4, '0')}`;
     })
     // formatting query results end
-    res.render("index", { title: "My RAW-ketplace", pokemon: pokemon, links: req.links });
+    res.render("index", { title: "RAWKETPLACE", pokemon: pokemon, links: req.links });
 }
 
 async function createPokemonGet(req, res) {
@@ -24,17 +27,20 @@ async function createPokemonPost(req, res) {
 }
 
 async function viewPokemon(req, res) {
-    const target = await db.getPokemonDetails(req.params.id);
+    const target = await db.getPokemonDetailsForView(req.params.id);
     // formatting query results begin
     if (target) {
+        target.image = `${imageUrl}` + (!target.shiny ? "" : "shiny/") + `${target.pokedex_number}.png`;
         target.name = target.name.charAt(0).toUpperCase() + target.name.slice(1);
+        target.price = `$${target.price}`;
+        target.pokedex_number = `#${target.pokedex_number.toString().padStart(4, '0')}`;
     }
     // formatting query results end
-    res.render("details", { title: "View item details", pokemon: target, links: req.links });
+    res.render("view", { title: "View item details", pokemon: target, links: req.links });
 }
 
 async function editPokemonGet(req, res) {
-    const target = await db.getPokemonDetails(req.params.id);
+    const target = await db.getPokemonDetailsForEdit(req.params.id);
     // formatting query results begin
     if (target) { target.name = target.name.charAt(0).toUpperCase() + target.name.slice(1) };
     // formatting query results end
@@ -42,10 +48,11 @@ async function editPokemonGet(req, res) {
 }
 
 async function editPokemonPost(req, res){
+    const id = req.params.id;
     const { generation, pokedex_number, type1, type2, rarity, price } = req.body;
     const shiny = !!req.body.shiny;
     const name = req.body.name.toLowerCase();
-    await db.updatePokemon(name, generation, pokedex_number, type1, type2, rarity, shiny, price);
+    await db.updatePokemon(name, generation, pokedex_number, type1, type2, rarity, shiny, price, id);
     res.redirect("/");
 }
 
@@ -86,9 +93,11 @@ async function searchPokemonGet(req, res) {
         if (queriesArray.length === 1) { queriesArray = [queriesArray] };
         results = await db.getPokemonById(queriesArray);
         // formatting query results begin
-        results.forEach((pokemon) => {
-            pokemon.name = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
-            pokemon.pokedex_number = pokemon.pokedex_number.toString().padStart(4, '0');
+        results.forEach((target) => {
+            target.image = `${imageUrl}` + (!target.shiny ? "" : "shiny/") + `${target.pokedex_number}.png`;
+            target.name = target.name.charAt(0).toUpperCase() + target.name.slice(1);
+            target.price = `$${target.price}`;
+            target.pokedex_number = `#${target.pokedex_number.toString().padStart(4, '0')}`;
         // formatting query results end
         })
     }

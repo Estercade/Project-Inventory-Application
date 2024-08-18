@@ -3,27 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" type="text/css" href="/styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="/styles/search.css">
+    <link rel="icon" href="/assets/favicon.svg">
+    <script type="text/javascript" src="/utilities/setTheme.js" defer></script>
     <title><%- title %></title>
 </head>
-<body>
-    <%- include("partials/navBar") %>
-    <%- include("partials/searchBar.ejs") %>
-    <% if (locals.results) { %>
-        <ul>
-            <% results.forEach((pokemon) => { %>
-                <li>
-                    <p>Name: <%= pokemon.name %></p>
-                    <p>Pok&#233dex number: <%= pokemon.pokedex_number %></p>
-                    <p>Type: <%= pokemon.type1 %> <% if (pokemon.type2) { %> <%= pokemon.type2 %> <% } %></p>
-                    <p>Price: <%= pokemon.price %></p>
-                </li>
-                <a href="/view/<%- pokemon.id %>">View details</a>
-                <a href="/edit/<%- pokemon.id %>">Edit</a>
-            <% }) %>
-        </ul>
-    <% } else { %>
-        <p>Item not found.</p>
-    <% } %>
+<body class="theme-light">
+    <a name="top" class="topAnchor"></a>
+    <header>
+        <%- include("partials/header") %>
+    </header>
+    <main>
+        <div class="titleContainer">
+            <h1 class="title"><%- title %></h1>
+        </div>
+        <% if (locals.results) { %>
+            <ul class="resultsItemContainer">
+                <% results.forEach((pokemon) => { %>
+                    <li class="inventoryItem">
+                        <div class="itemImageWrapper">
+                            <a href="/view/<%- pokemon.id %>" class="viewLink">
+                                <img src="<%= pokemon.image %>" alt="<%= pokemon.name %> image">
+                            </a>
+                        </div>
+                        <div class="itemDetailsWrapper">
+                            <p>Name: <%= pokemon.name %></p>
+                            <p>Pok&#233dex number: <%= pokemon.pokedex_number %></p>
+                            <p>Type: <span class="typeContainer <%= pokemon.type1 %>"><%= pokemon.type1 %></span> <% if (pokemon.type2) { %> <span class="typeContainer <%= pokemon.type2 %>"><%= pokemon.type2 %></span> <% } %></p>
+                            <p>Price: <%= pokemon.price %></p>
+                        </div>
+                        <div class="itemControls">
+                            <a href="/view/<%- pokemon.id %>" class="viewLink">View details</a>
+                            <a href="/edit/<%- pokemon.id %>" class="editLink">Edit</a>
+                            <form action="/delete/<%= pokemon.id %>" method="POST">
+                                <button type="submit" onclick="return confirm('Are you sure you want to delete this Pok&#233mon?');" class="deleteButton"><u>Delete</u></button>
+                            </form>
+                        </div>
+                    </li>
+                <% }) %>
+            </ul>
+        <% } else { %>
+            <p>Item not found.</p>
+        <% } %>
+        <a href="/">Back to home</a><br>
+    </main>
+    <footer>
+        <a href="#top" class="linkToTop">Back to top</a>
+    </footer>
 </body>
 </html>

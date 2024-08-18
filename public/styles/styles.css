@@ -1,0 +1,296 @@
+/* General stylesheet */
+
+/* light/dark mode styling begins */
+.theme-dark {
+    --color-bg: #222222;
+    --color-theme: #1d2025;
+    --color-text: #969696;
+}
+
+.theme-light {
+    --color-bg: white;
+    --color-theme: #1d2025;
+    --color-text: black;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    transition: background-color ease-in-out 0.1s, color ease-in-out 0.1s;
+}
+/* light/dark mode styling ends */
+
+/* reset browser defaults starts */
+* {
+    padding: 0;
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    outline: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: var(--color-text);
+}
+
+a {
+    color: inherit;
+}
+
+a:hover {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+}
+/* reset browser defaults ends */
+
+/* general styling begins */
+@font-face {
+    font-family: "Byte Bounce";
+    src: local("Byte Bounce"), url(../assets/ByteBounce.ttf);
+}
+
+* {
+    font-family: "Byte Bounce", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+select {
+    font-size: 1.25rem;
+    height: 1.25rem;
+    border-radius: 3px;
+}
+/* general styling ends */
+
+/* header styling begins */
+header {
+    display: flex;
+    padding: 0.2rem;
+}
+
+.linksContainer {
+    display: flex;
+    gap: 0.3rem;
+}
+
+/* theme toggle switch styling begins */
+.themeToggle {
+    position: relative;
+    top: 0.2rem;
+    width: 1.9rem;
+    height: 1rem;
+}
+
+.themeToggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .2s;
+    transition: .2s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 0.8rem;
+    width: 0.8rem;
+    left: 0.1rem;
+    bottom: 0.1rem;
+    background-color: white;
+    -webkit-transition: .2s;
+    transition: .2s;
+}
+  
+input:checked + .slider {
+    background-color: #2196F3;
+}
+  
+input:checked + .slider:before {
+    -webkit-transform: translateX(0.9rem);
+    -ms-transform: translateX(0.9rem);
+    transform: translateX(0.9rem);
+}
+  
+  /* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+  
+.slider.round:before {
+    border-radius: 50%;
+}
+/* theme toggle switch styling ends */
+
+.searchbarContainer {
+    margin: 0 2rem 0 auto;
+}
+
+.searchbarForm {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.searchButton {
+    font-size: 1.5rem;
+    min-height: 1rem;
+    width: 1.25rem;
+    position: relative;
+    top: 0.1rem;
+}
+
+/* invert icon if dark mode */
+body.theme-dark .searchIcon {
+    filter: invert(1) brightness(60%);
+}
+
+/* header styling ends */
+
+/* main styling begins */
+.title {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.titleContainer {
+    margin-bottom: 1rem;
+}
+
+.tagline {
+    text-align: center;
+}
+
+.typeContainer {
+    border-radius: 3px;
+    padding: 0.15rem;
+    color: black;
+}
+
+.typeContainer.normal {
+    background-color: #A8A77A;
+}
+
+.typeContainer.fire {
+    background-color: #EE8130;
+}
+
+.typeContainer.water {
+    background-color: #6390F0;
+}
+
+.typeContainer.electric {
+    background-color: #F7D02C;
+}
+
+.typeContainer.grass {
+    background-color: #7AC74C;
+}
+
+.typeContainer.ice {
+    background-color: #96D9D6;
+}
+
+.typeContainer.fighting {
+    background-color: #C22E28;
+}
+
+.typeContainer.poison {
+    background-color: #A33EA1;
+}
+
+.typeContainer.ground {
+    background-color: #E2BF65;
+}
+
+.typeContainer.flying {
+    background-color: #A98FF3;
+}
+
+.typeContainer.psychic {
+    background-color: #F95587;
+}
+
+.typeContainer.bug {
+    background-color: #A6B91A;
+}
+
+.typeContainer.rock {
+    background-color: #B6A136;
+}
+
+.typeContainer.ghost {
+    background-color: #735797;
+}
+
+.typeContainer.dragon {
+    background-color: #6F35FC;
+}
+
+.typeContainer.dark {
+    background-color: #705746;
+}
+
+.typeContainer.steel {
+    background-color: #B7B7CE;
+}
+
+.typeContainer.fairy {
+    background-color: #D685AD;
+}
+
+/* main styling ends */
+
+/* footer styling begins */
+footer {
+    padding: 0.4rem;
+    text-align: center;    
+}
+/* footer styling ends */
+
+/* mobile styling begins ------------------------------------ */
+@media (max-width: 600px) {
+    /* header styling begins */
+    header {
+        flex-direction: column;
+    }
+
+    .navbar {
+        margin: auto;
+    }
+
+    .themeToggle {
+        position: absolute;
+        right: 0.1rem;
+    }
+
+    .searchbarContainer {
+        margin: 0.2rem auto;
+    }
+    /* header styling ends */
+}
+
+/* mobile styling ends -------------------------------------- */

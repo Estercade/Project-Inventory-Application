@@ -41,7 +41,7 @@ Wilson Lee
 ## Credits
 
 - [PokeAPI](https://pokeapi.co/)
-- [Pokemon GB Font by Jackster Productions](https://www.fontspace.com/pokemon-gb-font-f9621) on FontSpace
+- [ByteBounce Font by HipFonts](https://www.1001fonts.com/bytebounce-font.html) on 1001fonts
 
 ## Acknowledgments
 

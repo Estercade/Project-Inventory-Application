@@ -3,12 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <link rel="stylesheet" type="text/css" href="/styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="/styles/404.css">
+    <link rel="icon" href="/assets/favicon.svg">
+    <script type="text/javascript" src="/utilities/setTheme.js" defer></script>
     <title><%- title %></title>
 </head>
-<body>
-    <%- include("partials/navBar") %>
-    <%- include("partials/searchBar.ejs") %>
-    <p>Oops! How'd you end up here?</p>
+<body class="theme-light">
+    <header>
+        <%- include("partials/header") %>
+    </header>
+    <main>
+        <div class="titleContainer">
+            <h1 class="title"><%- title %></h1>
+        </div>
+        <div class="errorMessageContainer">
+            <p>404 page not found</p>
+            <p>How'd you end up here??</p>
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/202.png" alt="">
+        </div>
+        <a href="/">Back to home</a>
+    </main>
 </body>
 </html>

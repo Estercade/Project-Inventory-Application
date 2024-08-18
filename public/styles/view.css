@@ -1,0 +1,60 @@
+/* View details stylesheet */
+
+main {
+    padding: 0.2rem;
+}
+
+.inventoryItem {
+    width: 100%;
+    display: flex;
+}
+
+.itemDetailsContainer {
+    width: max(350px, 50%);
+    margin: 0 auto;
+    border: 2px solid var(--color-text);
+    border-radius: 3px;
+    padding: 0.5rem;
+}
+
+.itemDetail {
+    margin: 0.75rem 0;
+}
+
+.imageContainer {
+    width: 100%;
+    text-align: center;
+}
+
+.itemControls {
+    width: 100%;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.editLink {
+    display: inline-block;
+    width: calc(100% - 0.4rem);
+    padding: 0.05rem;
+    background-color: var(--color-bg);
+    border: 3px solid var(--color-text);
+    border-radius: 3px;
+}
+
+.editLink:hover {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+}
+
+.deleteItemButton {
+    margin-top: 0.5rem;
+    width: 100%;
+    background-color: var(--color-bg);
+    border: 3px solid var(--color-text);
+    border-radius: 3px;
+}
+
+.deleteItemButton:hover {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+}

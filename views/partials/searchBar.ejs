@@ -1,7 +1,9 @@
 <div class="searchbarContainer">
-    <form action="/search" method="POST">
-        <label for="query">Search</label>
-        <input type="text" name="query" id="query" minlength="1" required>
-        <button type="submit">Search</button>
+    <form action="/search" method="POST" class="searchbarForm">
+        <label for="query">Search: </label>
+        <input type="text" name="query" id="query" minlength="1" class="searchbarInput" required>
+        <button type="submit" class="searchButton" aria-label="search button">
+            <img src="/assets/magnify.svg" alt="" class="searchIcon">
+        </button>
     </form>
 </div>

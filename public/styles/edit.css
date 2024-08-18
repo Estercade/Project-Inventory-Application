@@ -1,0 +1,51 @@
+/* Edit item stylesheet */
+
+main {
+    padding: 0.2rem;
+}
+
+.editItemForm {
+    width: max(350px, 50%);
+    margin: 0 auto;
+    border: 2px solid var(--color-text);
+    border-radius: 3px 3px 0 0;
+    padding: 0.3rem;
+    font-size: 1.5rem;
+    border-bottom: none;
+}
+
+.formItem {
+    margin: 0.75rem 0;
+}
+
+.submitFormButton {
+    width: 100%;
+    border: 3px solid var(--color-text);
+    border-radius: 3px;
+}
+
+.submitFormButton:hover {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+}
+
+.deleteItemForm {
+    width: max(350px, 50%);
+    margin: 0 auto;
+    border: 2px solid var(--color-text);
+    border-radius: 0 0 3px 3px;
+    padding: 0.3rem;
+    font-size: 1.5rem;
+    border-top: none;
+}
+
+.deleteItemButton {
+    width: 100%;
+    border: 3px solid var(--color-text);
+    border-radius: 3px;
+}
+
+.deleteItemButton:hover {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+}

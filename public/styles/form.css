@@ -1,0 +1,29 @@
+/* Form page stylesheet */
+
+main {
+    padding: 0.2rem;
+}
+
+.addItemForm {
+    width: max(350px, 50%);
+    margin: 0 auto;
+    border: 2px solid var(--color-text);
+    border-radius: 3px;
+    padding: 0.3rem;
+    font-size: 1.5rem;
+}
+
+.formItem {
+    margin: 0.75rem 0;
+}
+
+.submitFormButton {
+    width: 100%;
+    border: 3px solid var(--color-text);
+    border-radius: 3px;
+}
+
+.submitFormButton:hover {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+}
