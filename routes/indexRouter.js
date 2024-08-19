@@ -37,7 +37,7 @@ indexRouter.get("/search/:query", indexController.searchPokemonGet);
 indexRouter.post("/filter", indexController.filterPokemonPost);
 indexRouter.get("/filter/:query", indexController.filterPokemonGet);
 
-indexRouter.use((req, res, next) => {
+indexRouter.all("*", (req, res, next) => {
   res.status(404);
   res.render("404", { title: "Oops!", links: req.links });
 })
