@@ -36,6 +36,7 @@ indexRouter.post("/search", indexController.searchPokemonPost);
 indexRouter.get("/search/:query", indexController.searchPokemonGet);
 indexRouter.post("/filter", indexController.filterPokemonPost);
 indexRouter.get("/filter/:query", indexController.filterPokemonGet);
+indexRouter.all("*", indexController.notFound);
 
 indexRouter.all("*", (req, res, next) => {
   res.status(404);

@@ -19,11 +19,17 @@ async function updatePokemon(name, generation, pokedex_number, type1, type2, rar
 }
 
 async function getPokemonDetailsForEdit(id) {
+    if (isNaN(id)) {
+        return null;
+    }
     const { rows } = await pool.query("SELECT * FROM pokemon WHERE pokemon.id = ($1)", [id]);
     return rows[0];
 }
 
 async function getPokemonDetailsForView(id) {
+    if (isNaN(id)) {
+        return null;
+    }
     const { rows } = await pool.query("SELECT pokemon.id, pokemon.name, pokemon.generation, pokemon.pokedex_number, t1.type AS type1, t2.type AS type2, pokemon.rarity, pokemon.shiny, pokemon.price FROM pokemon JOIN types t1 ON pokemon.type1 = t1.id JOIN types t2 ON pokemon.type2 = t2.id WHERE pokemon.id = ($1)", [id]);
     return rows[0];
 }
@@ -155,6 +161,10 @@ async function filterPokemon(query) {
         }
     }
     dbRequest += ")";
+    // if query is invalid, return empty
+    if (counter === 1) {
+        return [];
+    }
     const { rows } = await pool.query(dbRequest, dbQueryArray);
     return rows;
 }

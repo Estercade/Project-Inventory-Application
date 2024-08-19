@@ -77,6 +77,7 @@ main {
 /* inventory item styling ends */
 
 .noResultsContainer {
+    font-size: 2rem;
     text-align: center;
 }
 

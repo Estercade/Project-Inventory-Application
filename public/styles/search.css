@@ -65,6 +65,12 @@ main {
 .viewLink {
     margin-left: auto;
 }
+
+.noResultsContainer {
+    font-size: 2rem;
+    text-align: center;
+}
+
 /* inventory item styling ends */
 
 /* main styling ends ------------------------ */
