@@ -61,3 +61,8 @@ main {
     background-color: var(--color-text);
     color: var(--color-bg);
 }
+
+.noResultsContainer {
+    font-size: 2rem;
+    text-align: center;
+}

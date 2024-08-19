@@ -89,7 +89,7 @@ async function searchPokemonRarity(query) {
 }
 
 async function filterPokemon(query) {
-    // initialize counter for PG to replace variables in db query
+    // initialize counter for pg to replace variables in db query
     let counter = 1;
     // initialize array for query values
     let dbQueryArray = [];
@@ -104,49 +104,61 @@ async function filterPokemon(query) {
             continue;
         }
         if (counter === 1) {
-            dbRequest += " WHERE (";
+            dbRequest += " WHERE ";
         } else {
-            dbRequest += ") AND (";
+            dbRequest += " AND ";
         }
         if (query[i].startsWith('type')) {
             let subStringArray = query[i].slice(5).split(",");
             for (let i = 0; i < subStringArray.length; i++) {
-                if (i > 0) {
+                if (i === 0) {
+                    dbRequest += "("
+                } else {
                     dbRequest += " OR ";
                 }
                 dbQueryArray.push(subStringArray[i]);
                 dbRequest += `(t1.type = ($${counter}) OR t2.type = ($${counter}))`;
                 counter += 1;
+                if (i === subStringArray.length - 1) dbRequest += ")"
             }
         } else if (query[i].startsWith('generation')) {
             let subStringArray = query[i].slice(11).split(",");
             for (let i = 0; i < subStringArray.length; i++) {
-                if (i > 0) {
+                if (i === 0) {
+                    dbRequest += "("
+                } else {
                     dbRequest += " OR ";
                 }
                 dbQueryArray.push(Number(subStringArray[i]));
                 dbRequest += `(pokemon.generation = ($${counter}))`;
                 counter += 1;
+                if (i === subStringArray.length - 1) dbRequest += ")"
             }
         } else if (query[i].startsWith('rarity')) {
             let subStringArray = query[i].slice(7).split(",");
             for (let i = 0; i < subStringArray.length; i++) {
-                if (i > 0) {
+                if (i === 0) {
+                    dbRequest += "("
+                } else {
                     dbRequest += " OR ";
                 }
                 dbQueryArray.push(subStringArray[i]);
                 dbRequest += `pokemon.rarity = ($${counter})`;
                 counter += 1;
+                if (i === subStringArray.length - 1) dbRequest += ")"
             }
         } else if (query[i].startsWith('shiny')) {
             let subStringArray = query[i].slice(6).split(",");
             for (let i = 0; i < subStringArray.length; i++) {
-                if (i > 0) {
+                if (i === 0) {
+                    dbRequest += "("
+                } else {
                     dbRequest += " OR ";
                 }
                 dbQueryArray.push(subStringArray[i]);
                 dbRequest += `pokemon.shiny = ($${counter})`;
                 counter += 1;
+                if (i === subStringArray.length - 1) dbRequest += ")"
             }
         } else if (query[i].startsWith('minimum')) {
             let min = query[i].slice(8);
@@ -160,7 +172,6 @@ async function filterPokemon(query) {
             counter += 1;
         }
     }
-    dbRequest += ")";
     // if query is invalid, return empty
     if (counter === 1) {
         return [];

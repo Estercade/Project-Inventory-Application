@@ -26,16 +26,15 @@ A live preview of this app can be found at: [https://rawketplace-inventory-app.a
 - JS ES6
 - Node 20.16.0
 - PostgreSQL 14.12
+- Express
 
 ### Tools
 
 - Visual Studio Code
 - Git and GitHub
-- Node.js
-- npm package manager
-- Express
-- PostgreSQL
+- npm
 - node-postgres
+- EJS
 
 ## Author
 
