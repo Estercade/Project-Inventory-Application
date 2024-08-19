@@ -18,6 +18,10 @@ h3 {
     margin: 0.2rem 0 0 1rem;
 }
 
+.aboutList {
+    list-style-type: "·";
+}
+
 .aboutListItem, p {
     margin: 0.1rem 0 0 1.5rem;
 }

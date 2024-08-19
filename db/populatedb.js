@@ -12,6 +12,7 @@ CREATE TABLE IF NOT EXISTS types (
 
 INSERT INTO types (id, type)
 VALUES 
+    (0, ''),
     (1, 'normal'),
     (2, 'fighting'),
     (3, 'flying'),
@@ -57,9 +58,9 @@ INSERT INTO pokemon (name, generation, pokedex_number, type1, type2, rarity, shi
 VALUES 
     ('bulbasaur', 1, 1, 12, 4, 'common', false, '2'),
     ('charizard', 1, 6, 10, 3, 'common', false, '60'),
-    ('mew', 1, 151, 14, null, 'mythical', false, '700'),
+    ('mew', 1, 151, 14, 0, 'mythical', false, '700'),
     ('wooper', 2, 194, 11, 5, 'common', true, '300'),
-    ('groudon', 3, 383, 5, null, 'legendary', false, '500')
+    ('groudon', 3, 383, 5, 0, 'legendary', false, '500')
 ;`
 
 

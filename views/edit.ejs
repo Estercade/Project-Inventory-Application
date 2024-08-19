@@ -27,15 +27,15 @@
                 <div class="formItem">
                     <label for="generation">Generation: </label>
                     <select name="generation" id="generation" value=<%= pokemon.generation %> required>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
+                        <option value="1" <% if (pokemon.generation === 1) { %>selected<% } %>>1</option>
+                        <option value="2" <% if (pokemon.generation === 2) { %>selected<% } %>>2</option>
+                        <option value="3" <% if (pokemon.generation === 3) { %>selected<% } %>>3</option>
+                        <option value="4" <% if (pokemon.generation === 4) { %>selected<% } %>>4</option>
+                        <option value="5" <% if (pokemon.generation === 5) { %>selected<% } %>>5</option>
+                        <option value="6" <% if (pokemon.generation === 6) { %>selected<% } %>>6</option>
+                        <option value="7" <% if (pokemon.generation === 7) { %>selected<% } %>>7</option>
+                        <option value="8" <% if (pokemon.generation === 8) { %>selected<% } %>>8</option>
+                        <option value="9" <% if (pokemon.generation === 9) { %>selected<% } %>>9</option>
                     </select>
                 </div>
                 <div class="formItem">
