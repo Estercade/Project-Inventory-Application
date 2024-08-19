@@ -6,6 +6,8 @@ const indexController = require("../controllers/indexController");
 const links = [
     { href: "/", text: "Home" },
     { href: "/new", text: "Add new item" },
+    { href: "/about", text: "About" },
+    { href: "/contact", text: "Contact us" },
 ];
 
 // middleware to inject data into request
@@ -15,6 +17,15 @@ indexRouter.use((req, res, next) => {
 })
 
 indexRouter.get("/", indexController.getAllPokemon);
+
+indexRouter.get("/about", (req, res, next) => {
+  res.render("about", { title: "About", links: req.links });
+});
+
+indexRouter.get("/contact", (req, res, next) => {
+  res.render("contact", { title: "Contact Us", links: req.links });
+});
+
 indexRouter.get("/new", indexController.createPokemonGet);
 indexRouter.post("/new", indexController.createPokemonPost);
 indexRouter.get("/view/:id", indexController.viewPokemon);

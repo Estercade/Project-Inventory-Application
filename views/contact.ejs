@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="/styles/contact.css">
+    <link rel="icon" href="/assets/favicon.svg">
+    <script type="text/javascript" src="/utilities/setTheme.js" defer></script>
+    <title><%- title %></title>
+</head>
+<body>
+    <a name="top" class="topAnchor"></a>
+    <header>
+        <%- include("partials/header") %>
+    </header>
+    <main>
+        <h1 class="title"><%- title %></h1>
+        <ul class="contactContainer">
+            <li class="contactListItem"><p class="contactItem">Wilson Lee</p></li>
+            <li class="contactListItem"><img src="/assets/github.svg" alt="" class="contactIcon"><a href="https://github.com/estercade" class="contactItem">(Github)</a></li>
+            <li class="contactListItem"><img src="/assets/email.svg" alt="" class="contactIcon"><a href="mailto:wilsonlee093@gmail.com" class="contactItem">wilsonlee093@gmail.com</a></li>
+        </ul>
+    </main>
+    <footer>
+        <a href="#top" class="linkToTop">Back to top</a>
+        <%- include("partials/footer") %>
+    </footer>
+</body>
+</html>

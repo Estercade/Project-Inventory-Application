@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="/styles/about.css">
+    <link rel="icon" href="/assets/favicon.svg">
+    <script type="text/javascript" src="/utilities/setTheme.js" defer></script>
+    <title><%- title %></title>
+</head>
+<body>
+    <a name="top" class="topAnchor"></a>
+    <header>
+        <%- include("partials/header") %>
+    </header>
+    <main>
+        <h1 class="title"><%- title %></h1>
+        <p class="projectDescription">This project was made following the instructions and specifications for The Odin Project NodeJS Course <a href="https://www.theodinproject.com/lessons/node-path-nodejs-inventory-application">Inventory Application project.</a></p> 
+
+        <h2>Description</h2>
+        <p>The goal of this project is to create an inventory application using Node.js, Express, and PostgreSQL. This program is optimized for use with Google Chrome.</p>
+
+        <h3>Features</h3>
+        <ul>
+            <li class="aboutListItem">A Node.js server using Express and a PostgreSQL database for inventory management</li>
+            <li class="aboutListItem">View database entry details</li>
+            <li class="aboutListItem">Add, delete, and edit new database entries using application</li>
+            <li class="aboutListItem">Search through database items</li>
+            <li class="aboutListItem">Filter and sort through database items</li>
+            <li class="aboutListItem">Responsive UI based on browser size with ability to expand and collapse filter bar</li>
+            <li class="aboutListItem">Dark mode preference detection and dark mode toggle</li>
+        </ul>
+
+        <h2>Built using</h2>
+
+        <h3>Technologies</h3>
+        <ul>
+            <li class="aboutListItem">HTML5</li>
+            <li class="aboutListItem">JS ES6</li>
+            <li class="aboutListItem">Node 20.16.0</li>
+            <li class="aboutListItem">PostgreSQL 14.12</li>
+        </ul>
+
+        <h3>Tools</h3>
+        <ul>
+            <li class="aboutListItem">Visual Studio Code</li>
+            <li class="aboutListItem">Git and GitHub</li>
+            <li class="aboutListItem">Node.js</li>
+            <li class="aboutListItem">npm package manager</li>
+            <li class="aboutListItem">Express</li>
+            <li class="aboutListItem">PostgreSQL</li>
+            <li class="aboutListItem">node-postgres</li>
+        </ul>
+
+        <h2>Author</h2>
+
+        <p>Wilson Lee <a href="https://github.com/estercade">(Github)</a></p> 
+
+        <h2>Credits</h2>
+        <ul>
+            <li class="aboutListItem"><a href="https://pokeapi.co/">PokeAPI</a></li>
+            <li class="aboutListItem"><a href="https://www.1001fonts.com/bytebounce-font.html">ByteBounce Font by HipFonts</a> on 1001fonts</li>
+            <li class="aboutListItem">Icons from <a href="https://pictogrammers.com/">Pictogrammers</a></li>
+            <li class="aboutListItem">Pok&#233;mon and Pok&#233;mon character names are trademarks of Nintendo.</li>
+        </ul>
+
+        <h2>Acknowledgements</h2>
+
+        <a href="https://www.theodinproject.com/" class="odinProjectLink">The Odin Project</a>
+    </main>
+    <footer>
+        <a href="#top" class="linkToTop">Back to top</a>
+        <%- include("partials/footer") %>
+    </footer>
+</body>
+</html>

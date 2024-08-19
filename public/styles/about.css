@@ -1,0 +1,27 @@
+/* About page stylesheet */
+
+main {
+    padding: 0.2rem;
+}
+
+.projectDescription {
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.6rem;
+    margin: 0.5rem 0 0 0.5rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+    margin: 0.2rem 0 0 1rem;
+}
+
+.aboutListItem, p {
+    margin: 0.1rem 0 0 1.5rem;
+}
+
+.odinProjectLink {
+    margin: 0.1rem 0 0 1.5rem;
+}

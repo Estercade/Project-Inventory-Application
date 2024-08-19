@@ -9,7 +9,8 @@
     <script type="text/javascript" src="/utilities/setTheme.js" defer></script>
     <title><%- title %></title>
 </head>
-<body class="theme-light">
+<body>
+    <a name="top" class="topAnchor"></a>
     <header>
         <%- include("partials/header") %>
     </header>
@@ -123,5 +124,9 @@
         <% } %>
         <a href="/">Back to home</a>
     </main>
+    <footer>
+        <a href="#top" class="linkToTop">Back to top</a>
+        <%- include("partials/footer") %>
+    </footer>
 </body>
 </html>
