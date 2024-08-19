@@ -1,5 +1,10 @@
 /* 404 page styling */
 
-.errorMessageContainer {
+main {
+    padding: 0.2rem;
     text-align: center;
+}
+
+.backToHomeLink {
+    font-size: 1.5rem;
 }

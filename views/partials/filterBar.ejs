@@ -1,0 +1,185 @@
+<div class="filtersContainer filtersHidden">
+    <div class="filtersContainerHeader">
+        <p>Filter by:</p>
+        <button type="button" class="closeFiltersButton" aria-label="close filters">&#10005;</button>
+    </div>
+    <form action="/filter" method="POST" class="filtersForm" id="filtersForm">
+        <details class="filterCategoryContainer">
+            <summary class="filterCategoryTitle">
+                Generation:
+                <span class="chevronIconContainer"><img src="/assets/chevron-down.svg" alt="" class="chevronIcon"></span>
+            </summary>
+            <ul class="generationFiltersContainer">
+                <li class="filterFormItem generation1">
+                    <input type="checkbox" name="generation" id="generation1FilterSelector" value="1">
+                    <label for="generation1FilterSelector"><span class="generationContainer">1 (R/B/Y)</span></label>
+                </li>
+                <li class="filterFormItem generation2">
+                    <input type="checkbox" name="generation" id="generation2FilterSelector" value="2">
+                    <label for="generation2FilterSelector"><span class="generationContainer">2 (G/S/C)</span></label>
+                    </li>
+                <li class="filterFormItem generation3">
+                    <input type="checkbox" name="generation" id="generation3FilterSelector" value="3">
+                    <label for="generation3FilterSelector"><span class="generationContainer">3 (R/S/E)</span></label>
+                    </li>
+                <li class="filterFormItem generation4">
+                    <input type="checkbox" name="generation" id="generation4FilterSelector" value="4">
+                    <label for="generation4FilterSelector"><span class="generationContainer">4 (D/P/Pt)</span></label>
+                    </li>
+                <li class="filterFormItem generation5">
+                    <input type="checkbox" name="generation" id="generation5FilterSelector" value="5">
+                    <label for="generation5FilterSelector"><span class="generationContainer">5 (B/W)</span></label>
+                    </li>
+                <li class="filterFormItem generation6">
+                    <input type="checkbox" name="generation" id="generation6FilterSelector" value="6">
+                    <label for="generation6FilterSelector"><span class="generationContainer">6 (X/Y)</span></label>
+                    </li>
+                <li class="filterFormItem generation7">
+                    <input type="checkbox" name="generation" id="generation7FilterSelector" value="7">
+                    <label for="generation7FilterSelector"><span class="generationContainer">7 (S/M)</span></label>
+                    </li>
+                <li class="filterFormItem generation8">
+                    <input type="checkbox" name="generation" id="generation8FilterSelector" value="8">
+                    <label for="generation8FilterSelector"><span class="generationContainer">8 (Sw/Sh)</span></label>
+                    </li>
+                <li class="filterFormItem generation9">
+                    <input type="checkbox" name="generation" id="generation9FilterSelector" value="9">
+                    <label for="generation9FilterSelector"><span class="generationContainer">9 (S/V)</span></label>
+                    </li>
+            </ul>
+        </details>
+        <details class="filterCategoryContainer">
+            <summary class="filterCategoryTitle">
+                Type:
+                <span class="chevronIconContainer"><img src="/assets/chevron-down.svg" alt="" class="chevronIcon"></span>
+            </summary>
+            <ul class="typeFiltersContainer">
+                <li class="filterFormItem">
+                    <input type="checkbox" name="type" id="normalFilterSelector" value="normal">
+                    <label for="normalFilterSelector"><span class="typeContainer normal">normal</span></label>
+                    </li>
+                <li class="filterFormItem">
+                    <input type="checkbox" name="type" id="fightingFilterSelector" value="fighting">
+                    <label for="fightingFilterSelector"><span class="typeContainer fighting">fighting</span></label>
+                    </li>
+                <li class="filterFormItem">
+                    <input type="checkbox" name="type" id="flyingFilterSelector" value="flying">
+                    <label for="flyingFilterSelector"><span class="typeContainer flying">flying</span></label>
+                    </li>
+                <li class="filterFormItem">
+                    <input type="checkbox" name="type" id="poisonFilterSelector" value="poison">
+                    <label for="poisonFilterSelector"><span class="typeContainer poison">poison</span></label>
+                </li>
+                <li class="filterFormItem">
+                    <input type="checkbox" name="type" id="groundFilterSelector" value="ground">
+                    <label for="groundFilterSelector"><span class="typeContainer ground">ground</span></label>
+                </li>
+                <li class="filterFormItem">
+                    <input type="checkbox" name="type" id="rockFilterSelector" value="rock">
+                    <label for="rockFilterSelector"><span class="typeContainer rock">rock</span></label>
+                </li>
+                <li class="filterFormItem">
+                    <input type="checkbox" name="type" id="bugFilterSelector" value="bug">
+                    <label for="bugFilterSelector"><span class="typeContainer bug">bug</span></label>
+                </li>
+                <li class="filterFormItem">
+                    <input type="checkbox" name="type" id="ghostFilterSelector" value="ghost">
+                    <label for="ghostFilterSelector"><span class="typeContainer ghost">ghost</span></label>
+                </li>
+                <li class="filterFormItem">
+                    <input type="checkbox" name="type" id="steelFilterSelector" value="steel">
+                    <label for="steelFilterSelector"><span class="typeContainer steel">steel</span></label>
+                </li>
+                <li class="filterFormItem">
+                    <input type="checkbox" name="type" id="fireFilterSelector" value="fire">
+                    <label for="fireFilterSelector"><span class="typeContainer fire">fire</span></label>
+                </li>
+                <li class="filterFormItem">
+                    <input type="checkbox" name="type" id="waterFilterSelector" value="water">
+                    <label for="waterFilterSelector"><span class="typeContainer water">water</span></label>
+                </li>
+                <li class="filterFormItem">
+                    <input type="checkbox" name="type" id="grassFilterSelector" value="grass">
+                    <label for="grassFilterSelector"><span class="typeContainer grass">grass</span></label>
+                </li>
+                <li class="filterFormItem">
+                    <input type="checkbox" name="type" id="electricFilterSelector" value="electric">
+                    <label for="electricFilterSelector"><span class="typeContainer electric">electric</span></label>
+                </li>
+                <li class="filterFormItem">
+                    <input type="checkbox" name="type" id="psychicFilterSelector" value="psychic">
+                    <label for="psychicFilterSelector"><span class="typeContainer psychic">psychic</span></label>
+                </li>
+                <li class="filterFormItem">
+                    <input type="checkbox" name="type" id="iceFilterSelector" value="ice">
+                    <label for="iceFilterSelector"><span class="typeContainer ice">ice</span></label>
+                </li>
+                <li class="filterFormItem">
+                    <input type="checkbox" name="type" id="dragonFilterSelector" value="dragon">
+                    <label for="dragonFilterSelector"><span class="typeContainer dragon">dragon</span></label>
+                </li>
+                <li class="filterFormItem">
+                    <input type="checkbox" name="type" id="darkFilterSelector" value="dark">
+                    <label for="darkFilterSelector"><span class="typeContainer dark">dark</span></label>
+                </li>
+                <li class="filterFormItem">
+                    <input type="checkbox" name="type" id="fairyFilterSelector" value="fairy">
+                    <label for="fairyFilterSelector"><span class="typeContainer fairy">fairy</span></label>
+                </li>
+                <li class="filterFormItem">
+                    <input type="checkbox" name="type" id="stellarFilterSelector" value="stellar">
+                    <label for="stellarFilterSelector"><span class="typeContainer stellar">stellar</span></label>
+                </li>
+                <li class="filterFormItem">
+                    <input type="checkbox" name="type" id="unknownFilterSelector" value="unknown">
+                    <label for="unknownFilterSelector"><span class="typeContainer unknown">unknown</span></label>
+                </li>
+            </ul>
+        </details>
+        <div class="filterCategoryContainer">
+            <h3>Rarity:</h3>
+            <ul class="rarityFiltersContainer">
+                <li class="filterFormItem">
+                    <input type="checkbox" name="rarity" id="commonFilterSelector" value="common">
+                    <label for="commonFilterSelector"><span class="rarityContainer">Common</span></label>
+                </li>
+                <li class="filterFormItem">
+                    <input type="checkbox" name="rarity" id="legendaryFilterSelector" value="legendary">
+                    <label for="legendaryFilterSelector"><span class="rarityContainer">Legendary</span></label>
+                </li>
+                <li class="filterFormItem">
+                    <input type="checkbox" name="rarity" id="mythicalFilterSelector" value="mythical">
+                    <label for="mythicalFilterSelector"><span class="rarityContainer">Mythical</span></label>
+                </li>
+            </ul>
+        </div>
+        <div class="filterCategoryContainer">
+            <h3>Shiny:</h3>
+            <ul class="shinyFiltersContainer">
+                <li class="filterFormItem">
+                    <input type="checkbox" name="shiny" id="shinyFilterSelector" value=true defaultValue="false">
+                    <label for="shinyFilterSelector"><span class="shinyContainer">Shiny</span></label>
+                </li>
+                <li class="filterFormItem">
+                    <input type="checkbox" name="shiny" id="notShinyFilterSelector" value=false defaultValue="false">
+                    <label for="notShinyFilterSelector"><span class="shinyContainer">Not shiny</span></label>
+                </li>
+            </ul>
+        </div>
+        <div class="filterCategoryContainer">
+            <h3>Price:</h3>
+            <div class="filterFormItem">
+                <label for="priceMinimumInput">Minimum: </label>
+                <input type="number" name="minimum" id="priceMinimumInput" class="priceMinimumInput" min="0" max="999999" value="">
+            </div>
+            <div class="filterFormItem">
+                <label for="priceMaximumInput">Maximum: </label>
+                <input type="number" name="maximum" id="priceMaximumInput" class="priceMaximumInput" min="1" max="999999" value="">
+            </div>
+        </div>
+        <div class="filterFormControls">
+            <button type="submit" class="submitFiltersButton">Submit</button>
+            <input type="reset" value="Clear filters" class="resetFiltersFormButton">
+        </div>
+    </form>
+</div>

@@ -5,8 +5,8 @@ main {
 }
 
 .addItemForm {
-    width: max(350px, 50%);
-    margin: 0 auto;
+    width: max(300px, 25%);
+    margin: 0 auto 2rem auto;
     border: 2px solid var(--color-text);
     border-radius: 3px;
     padding: 0.3rem;
@@ -24,6 +24,18 @@ main {
 }
 
 .submitFormButton:hover {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+}
+
+.resetFormButton {
+    margin: 0.5rem 0 0 0;
+    width: 100%;
+    border: 3px solid var(--color-text);
+    border-radius: 3px;
+}
+
+.resetFormButton:hover {
     background-color: var(--color-text);
     color: var(--color-bg);
 }

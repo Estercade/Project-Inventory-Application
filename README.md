@@ -8,11 +8,13 @@ The goal of this project is to create an inventory application using Node.js, Ex
 
 ### Features
 
-- A Node.js server delivering a web application with index, about, contact me, and 404 pages
-- localhost:8080 takes users to index.html
-- localhost:8080/about takes users to about.html
-- localhost:8080/contact-me takes users to contact-me.html
-- 404.html displays any time the user tries to go to a page not listed above
+- A Node.js server using Express and a PostgreSQL database for inventory management
+- View database entry details
+- Add, delete, and edit new database entries using application
+- Search through database items
+- Filter and sort through database items
+- Responsive UI based on browser size with ability to expand and collapse filter bar
+- Dark mode preference detection and dark mode toggle
 
 ## Built using
 
@@ -42,6 +44,8 @@ Wilson Lee
 
 - [PokeAPI](https://pokeapi.co/)
 - [ByteBounce Font by HipFonts](https://www.1001fonts.com/bytebounce-font.html) on 1001fonts
+- Icon from [Pictogrammers](https://pictogrammers.com/)
+- Pok&#233;mon and Pok&#233;mon character names are trademarks of Nintendo.
 
 ## Acknowledgments
 

@@ -22,7 +22,9 @@ indexRouter.get("/edit/:id", indexController.editPokemonGet);
 indexRouter.post("/edit/:id", indexController.editPokemonPost);
 indexRouter.post("/delete/:id", indexController.deletePokemon);
 indexRouter.post("/search", indexController.searchPokemonPost);
-indexRouter.get("/search", indexController.searchPokemonGet);
+indexRouter.get("/search/:query", indexController.searchPokemonGet);
+indexRouter.post("/filter", indexController.filterPokemonPost);
+indexRouter.get("/filter/:query", indexController.filterPokemonGet);
 
 indexRouter.use((req, res, next) => {
   res.status(404);

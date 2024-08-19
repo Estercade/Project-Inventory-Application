@@ -32,6 +32,7 @@ async function viewPokemon(req, res) {
     if (target) {
         target.image = `${imageUrl}` + (!target.shiny ? "" : "shiny/") + `${target.pokedex_number}.png`;
         target.name = target.name.charAt(0).toUpperCase() + target.name.slice(1);
+        target.rarity = target.rarity.charAt(0).toUpperCase() + target.rarity.slice(1);
         target.price = `$${target.price}`;
         target.pokedex_number = `#${target.pokedex_number.toString().padStart(4, '0')}`;
     }
@@ -63,45 +64,84 @@ async function deletePokemon(req, res) {
 
 async function searchPokemonPost(req, res) {
     let query = req.body.query;
-    let results;
-    // check if query is an integer or a string
-    if (isNaN(query)) {
-        // if query is a string, cast to lowercase to normalize results
-        query = query.toLowerCase();
-        if (query === 'common' | query === 'legendary' | query === 'mythical') {
-            results = await db.searchPokemonRarity(query); 
-        } else {
-            results = await db.searchPokemonString(query);
-        }
-    // if query is an integer, compare to integer columns
-    } else {
-        results = await db.searchPokemonInt(query);
-    }
-    // add result ids into url for redirect
-    let url = "";
-    for (let i = 0; i < results.length; i++) {
-        url === "" ? url = `?id=${results[i].id}` : url = url + `&id=${results[i].id}`;
-    }
-    res.redirect(`search${url}`);
+    res.redirect(`search/${query}`);
 }
 
 async function searchPokemonGet(req, res) {
-    let queriesArray = req.query.id;
-    let results;
-    if (queriesArray) {
-        // wrap in array for array comparison in query if only one item
-        if (queriesArray.length === 1) { queriesArray = [queriesArray] };
-        results = await db.getPokemonById(queriesArray);
+    let query = req.params.query;
+    let results = await db.searchPokemon(query);
+    if (results) {
         // formatting query results begin
         results.forEach((target) => {
             target.image = `${imageUrl}` + (!target.shiny ? "" : "shiny/") + `${target.pokedex_number}.png`;
             target.name = target.name.charAt(0).toUpperCase() + target.name.slice(1);
+            target.rarity = target.rarity.charAt(0).toUpperCase() + target.rarity.slice(1);
             target.price = `$${target.price}`;
             target.pokedex_number = `#${target.pokedex_number.toString().padStart(4, '0')}`;
         // formatting query results end
         })
     }
     res.render("search", { title: "Search results", results: results, links: req.links });
+}
+
+async function filterPokemonPost(req, res) {
+    let query = '';
+    function checkIsEmpty(str) {
+        if (str !== '') {
+            query = str.concat('&');
+        }
+    }
+
+    if (req.body.generation) {
+        checkIsEmpty(query);
+        query += (`generation=${req.body.generation}`);
+    }
+    if (req.body.type) {
+        checkIsEmpty(query);
+        query += (`type=${req.body.type}`);
+    }
+    if (req.body.rarity) {
+        checkIsEmpty(query);
+        query += (`rarity=${req.body.rarity}`);
+    }
+    if (req.body.shiny) {
+        checkIsEmpty(query);
+        query += (`shiny=${req.body.shiny}`);
+    }
+    if (req.body.minimum) {
+        checkIsEmpty(query);
+        query += (`minimum=${req.body.minimum}`);
+    }
+    if (req.body.maximum) {
+        checkIsEmpty(query);
+        query += (`maximum=${req.body.maximum}`);
+    }
+    if (req.body.sortby) {
+        checkIsEmpty(query);
+        query += (`sortby=${req.body.sortby}`);
+    }
+    if (query === '') {
+        res.redirect("/");
+    } else {
+        res.redirect(`filter/${query}`);
+    }
+}
+
+async function filterPokemonGet(req, res) {
+    query = req.params.query.split("&");
+    let results = await db.filterPokemon(query);
+    if (results) {
+        // formatting query results begin
+        results.forEach((target) => {
+            target.image = `${imageUrl}` + (!target.shiny ? "" : "shiny/") + `${target.pokedex_number}.png`;
+            target.name = target.name.charAt(0).toUpperCase() + target.name.slice(1);
+            target.rarity = target.rarity.charAt(0).toUpperCase() + target.rarity.slice(1);
+            target.price = `$${target.price}`;
+            target.pokedex_number = `#${target.pokedex_number.toString().padStart(4, '0')}`;
+        // formatting query results end
+        })
+    }
+    res.render("filter", { title: "RAWKETPLACE", results: results, links: req.links });
 }
 
 async function notFound(err, req, res, next) {
@@ -119,5 +159,7 @@ module.exports = {
     deletePokemon,
     searchPokemonPost,
     searchPokemonGet,
+    filterPokemonPost,
+    filterPokemonGet,
     notFound,
 }

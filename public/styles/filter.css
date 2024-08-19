@@ -6,10 +6,19 @@ main {
 }
 
 /* results styling begins */
-.resultsItemContainer {
+.resultsSection {
+    display: flex;
+    width: 100%;
+}
+
+.resultsListContainer {
+    width: 100%;
+}
+
+.resultsList {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
 }
 
 .inventoryItem {
@@ -67,34 +76,71 @@ main {
 }
 /* inventory item styling ends */
 
+.noResultsContainer {
+    text-align: center;
+}
+
+.backToHomeContainer {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.backToHomeLink {
+    font-size: 1.5rem;
+}
+
 /* main styling ends ------------------------ */
 
-@media (max-width: 1600px) {
-    .inventoryItem {
+/* window size styling begins -------------------------------------- */
+
+/* window size styling begins -------------------------------------- */
+
+/* inventory styling with filter bar begins */
+@media (max-width: 1670px) {
+    .inventoryItem.filtersShown {
         width: max(350px, calc(33% - 0.4rem));
     }
 }
 
-/* tablet styling begins ------------------------------------ */
-@media (max-width: 1100px) {
-    /* inventory styling begins */
-    .inventoryItem {
+@media (max-width: 1380px) {
+    .inventoryItem.filtersShown {
         width: max(350px, calc(50% - 0.4rem));
     }
-    /* inventory styling ends */
 }
-/* tablet styling ends -------------------------------------- */
 
-/* mobile styling begins ------------------------------------ */
+@media (max-width: 1100px) {
+    .inventoryItem.filtersShown {
+        width: max(350px, calc(100% - 0.4rem));
+    }
+}
+/* inventory styling with filter ends begins */
+
+/* inventory styling without filter bar begins */
+@media (max-width: 1600px) {
+    .inventoryItem.filtersHidden {
+        width: max(350px, calc(33% - 0.4rem));
+    }
+}
+
+@media (max-width: 1100px) {
+    .inventoryItem.filtersHidden {
+        width: max(350px, calc(50% - 0.4rem));
+    }
+}
+
 @media (max-width: 750px) {
-    /* inventory styling begins */
-    .inventoryContainer {
+    .resultsListContainer {
         display: block;
     }
 
-    .inventoryItem {
-        width: max(350px, 100%);
+    .resultsSection {
+        display: block;
     }
-    /* inventory styling ends */
+
+    .inventoryItem.filtersHidden {
+        width: max(350px, calc(100% - 0.4rem));
+    }
 }
-/* mobile styling ends -------------------------------------- */
+/* inventory styling without filter ends */
+
+/* window size styling ends -------------------------------------- */

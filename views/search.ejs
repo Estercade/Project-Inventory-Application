@@ -18,12 +18,13 @@
         <div class="titleContainer">
             <h1 class="title"><%- title %></h1>
         </div>
-        <% if (locals.results) { %>
+        <% if (locals.results.length > 0) { %>
+
             <ul class="resultsItemContainer">
                 <% results.forEach((pokemon) => { %>
                     <li class="inventoryItem">
                         <div class="itemImageWrapper">
-                            <a href="/view/<%- pokemon.id %>" class="viewLink">
+                            <a href="/view/<%- pokemon.id %>" class="imageWrapperViewLink">
                                 <img src="<%= pokemon.image %>" alt="<%= pokemon.name %> image">
                             </a>
                         </div>
@@ -44,7 +45,7 @@
                 <% }) %>
             </ul>
         <% } else { %>
-            <p>Item not found.</p>
+            <p>No items found.</p>
         <% } %>
         <a href="/">Back to home</a><br>
     </main>

@@ -5,7 +5,7 @@ main {
 }
 
 .editItemForm {
-    width: max(350px, 50%);
+    width: max(300px, 25%);
     margin: 0 auto;
     border: 2px solid var(--color-text);
     border-radius: 3px 3px 0 0;
@@ -29,9 +29,21 @@ main {
     color: var(--color-bg);
 }
 
+.resetFormButton {
+    margin-top: 0.5rem;
+    width: 100%;
+    border: 3px solid var(--color-text);
+    border-radius: 3px;
+}
+
+.resetFormButton:hover {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+}
+
 .deleteItemForm {
-    width: max(350px, 50%);
-    margin: 0 auto;
+    width: max(300px, 25%);
+    margin: 0 auto 2rem auto;
     border: 2px solid var(--color-text);
     border-radius: 0 0 3px 3px;
     padding: 0.3rem;

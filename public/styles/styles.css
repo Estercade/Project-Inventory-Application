@@ -4,16 +4,19 @@
 .theme-dark {
     --color-bg: #222222;
     --color-theme: #1d2025;
+    --color-accent: #838383;
     --color-text: #969696;
 }
 
 .theme-light {
     --color-bg: white;
     --color-theme: #1d2025;
+    --color-accent: #2196F3;
     --color-text: black;
 }
 
 body {
+    min-width: 400px;
     background-color: var(--color-bg);
     color: var(--color-text);
     transition: background-color ease-in-out 0.1s, color ease-in-out 0.1s;
@@ -25,18 +28,37 @@ body {
     padding: 0;
     margin: 0;
     font-size: 1.25rem;
+    box-sizing: border-box;
 }
 
 ul {
     list-style: none;
 }
+/* reset browser defaults ends */
 
+/* general styling begins */
 button {
     outline: none;
     border: none;
     background: none;
     cursor: pointer;
     color: var(--color-text);
+}
+
+input {
+    outline: none;
+    border: 1.5px solid var(--color-text);
+    border-radius: 3px;
+}
+
+input[type='text'], input[type='number'] {
+    padding: 0.1rem;
+}
+
+select {
+    outline: none;
+    border: 1.5px solid var(--color-text);
+    border-radius: 3px;
 }
 
 a {
@@ -47,9 +69,16 @@ a:hover {
     background-color: var(--color-text);
     color: var(--color-bg);
 }
-/* reset browser defaults ends */
 
-/* general styling begins */
+.resetFormButton {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+.resetFormButton:hover {
+    cursor: pointer;
+}
+
 @font-face {
     font-family: "Byte Bounce";
     src: local("Byte Bounce"), url(../assets/ByteBounce.ttf);
@@ -146,7 +175,7 @@ input:checked + .slider:before {
 /* theme toggle switch styling ends */
 
 .searchbarContainer {
-    margin: 0 2rem 0 auto;
+    margin: 0 1rem 0 auto;
 }
 
 .searchbarForm {
@@ -163,12 +192,183 @@ input:checked + .slider:before {
     top: 0.1rem;
 }
 
-/* invert icon if dark mode */
+/* invert searchbar icon if dark mode */
 body.theme-dark .searchIcon {
     filter: invert(1) brightness(60%);
 }
 
 /* header styling ends */
+
+/* filter container and sort by selector styling begins */
+.optionsContainer {
+    display: flex;
+}
+
+.sortbySelector {
+    margin-left: auto;
+    margin: 0 0.2rem 0.2rem auto;
+}
+
+.showFiltersButton {
+    margin: 0 0 0 0.2rem;
+}
+
+.showFiltersButton.filtersHidden::after {
+    content: "> Show filters";
+}
+
+.showFiltersButton.filtersHidden:hover {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+}
+
+.showFiltersButton.filtersShown::after {
+    display: hidden;
+}
+
+.filterCategoryContainer {
+    padding: 0.2rem;
+    margin: 0.4rem 0;
+    border: 1.5px solid var(--color-text);
+    border-radius: 3px;
+}
+
+.filtersContainer.filtersHidden {
+    display: none;
+}
+
+.filtersContainer.filtersShown {
+    padding: 0.3rem;
+    min-width: 14rem;
+    border: 2px solid var(--color-text);
+    border-radius: 3px;
+    margin: 0.2rem 0.2rem 0.4rem 0;
+}
+
+.filtersContainerHeader {
+    display: flex;
+}
+
+.filterCategoryTitle {
+    margin-bottom: 0.2rem;
+}
+
+.closeFiltersButton {
+    margin-left: auto;
+    font-size: 1rem;
+    position: relative;
+    left: 0.1rem;
+    bottom: 0.1rem;
+}
+
+.filterFormItem {
+    margin: 0.2rem 0;
+}
+
+summary {
+    cursor: pointer;
+    display: flex;
+}
+
+.chevronIconContainer {
+    margin-left: auto;
+    width: 1.2rem;
+    max-height: 0.5rem;
+    filter: invert(1) brightness(60%);
+    position: relative;
+    top: -0.1rem;
+    left: 0.25rem;
+}
+
+.filterCategoryContainer[open] .chevronIcon {
+    transform: rotate(180deg);
+}
+
+.generationFiltersContainer {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-areas:
+        "a f"
+        "b g"
+        "c h"
+        "d i"
+        "e j";
+}
+
+.generation1 {
+    grid-area: a;
+}
+
+.generation2 {
+    grid-area: b;
+}
+
+.generation3 {
+    grid-area: c;
+}
+
+.generation4 {
+    grid-area: d;
+}
+
+.generation5 {
+    grid-area: e;
+}
+
+.generation6 {
+    grid-area: f;
+}
+
+.generation7 {
+    grid-area: g;
+}
+
+.generation8 {
+    grid-area: h;
+}
+
+.generation9 {
+    grid-area: i;
+}
+
+.typeFiltersContainer {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.priceMinimumInput {
+    margin-left: 0.3rem;
+}
+
+.submitFiltersButton {
+    margin-top: 0.5rem;
+    width: 100%;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    border: 3px solid var(--color-text);
+    border-radius: 3px;
+}
+
+.submitFiltersButton:hover {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+}
+
+.resetFiltersFormButton {
+    margin-top: 0.5rem;
+    width: 100%;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    border: 3px solid var(--color-text);
+    border-radius: 3px;
+}
+
+.resetFiltersFormButton:hover {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+}
+
+/* filter styling ends */
 
 /* main styling begins */
 .title {
@@ -260,6 +460,16 @@ body.theme-dark .searchIcon {
 
 .typeContainer.fairy {
     background-color: #D685AD;
+}
+
+.typeContainer.stellar {
+    background-color: #44628d;
+    color: white;
+}
+
+.typeContainer.unknown {
+    background-color: black;
+    color: white;
 }
 
 /* main styling ends */
