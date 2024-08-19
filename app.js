@@ -16,4 +16,7 @@ app.set("view engine", "ejs");
 app.use("/", indexRouter);
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Express app listening on port ${PORT}`));
+app.listen(PORT, '0.0.0.0', function(err) {
+    if (err) console.log("Error in server setup")
+    console.log("Started listening on %s", PORT);
+});
