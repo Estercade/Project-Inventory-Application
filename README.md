@@ -6,7 +6,7 @@ This project was made following the instructions and specifications for The Odin
 
 The goal of this project is to create an inventory application using Node.js, Express, and PostgreSQL. This program is optimized for use with Google Chrome.
 
-A live preview of this app can be found at: [https://rawketplace-inventory-app.adaptable.app/](https://rawketplace-inventory-app.adaptable.app/)
+A live preview of this app can be found at: [https://project-inventory-application.onrender.com](https://project-inventory-application.onrender.com)
 
 ### Features
 
